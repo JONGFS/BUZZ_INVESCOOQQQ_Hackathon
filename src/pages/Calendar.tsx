@@ -9,6 +9,7 @@ import clemsonLogo from '@buzz_source_img/clemson.png';
 import fsuLogo from '@buzz_source_img/fsu.jpeg';
 import gtLogo from '@buzz_source_img/gt.png';
 import uncLogo from '@buzz_source_img/unc.png';
+import ugaLogo from '@buzz_source_img/uga.png';
 
 type FilterType = 'all' | 'men' | 'women';
 
@@ -16,6 +17,8 @@ export default function Calendar() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const [selectedGame, setSelectedGame] = useState<any>(null);
   const [confirmationStep, setConfirmationStep] = useState<'idle' | 'checking' | 'loc_confirmed' | 'att_confirmed'>('idle');
+  const baseBuzzpoints = 20;
+  const streakMultiplier = 1.4;
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
@@ -34,6 +37,7 @@ export default function Calendar() {
     { day: 7, type: 'women', opponent: 'UNC', multiplier: '1.5×', time: '6:30 PM', bonus: "Women's Game Boost", logo: uncLogo },
     { day: 12, type: 'men', opponent: 'Clemson', multiplier: '1.2×', time: '8:00 PM', bonus: 'Streak Saver', logo: clemsonLogo },
     { day: 15, type: 'women', opponent: 'FSU', multiplier: '1.5×', time: '7:00 PM', bonus: "Women's Game Boost", logo: fsuLogo },
+    { day: 28, type: 'men', opponent: 'UGA', multiplier: '2.0×', time: '3:00 PM', bonus: 'Weekend Rivalry', logo: ugaLogo },
   ];
 
   const getGameForDay = (day: number) => {
@@ -44,6 +48,11 @@ export default function Calendar() {
     if (activeFilter === 'women' && game.type === 'women') return game;
     return null;
   };
+
+  const gameMultiplier = selectedGame
+    ? Number.parseFloat(selectedGame.multiplier.replace('×', ''))
+    : 1;
+  const calculatedBuzzpoints = Math.round(baseBuzzpoints * streakMultiplier * gameMultiplier);
 
   return (
     <div className="pb-24 pt-6 px-4 max-w-md mx-auto space-y-6">
@@ -200,18 +209,18 @@ export default function Calendar() {
                       <Star className="w-4 h-4 text-gt-gold fill-current" />
                     </div>
                     <div className="flex items-end gap-2">
-                      <span className="text-4xl font-black text-gt-gold">42</span>
+                      <span className="text-4xl font-black text-gt-gold">{calculatedBuzzpoints}</span>
                       <span className="text-lg font-bold mb-0.5">BUZZPOINTS</span>
                     </div>
                     <div className="h-px bg-white/10 w-full" />
                     <div className="grid grid-cols-3 gap-2 text-[10px] font-bold uppercase tracking-wider">
                       <div className="space-y-1">
                         <p className="text-white/40">Base</p>
-                        <p>20 buzzpoints</p>
+                        <p>{baseBuzzpoints} buzzpoints</p>
                       </div>
                       <div className="space-y-1 border-x border-white/10 px-2">
                         <p className="text-white/40">Streak</p>
-                        <p>1.4×</p>
+                        <p>{streakMultiplier.toFixed(1)}×</p>
                       </div>
                       <div className="space-y-1">
                         <p className="text-white/40">Game</p>
