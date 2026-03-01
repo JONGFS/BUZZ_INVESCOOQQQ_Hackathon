@@ -14,6 +14,14 @@ import {
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
+const getInitials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+
 export default function RSVPManager() {
   const [selectedOrg, setSelectedOrg] = useState('Alpha Tau Omega');
   const [reminded, setReminded] = useState(false);
@@ -135,7 +143,7 @@ export default function RSVPManager() {
             <div key={member.id} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gt-navy/5 flex items-center justify-center overflow-hidden">
-                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${member.name}`} alt={member.name} referrerPolicy="no-referrer" />
+                  <span className="text-xs font-black text-gray-500">{getInitials(member.name)}</span>
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-gt-navy">{member.name}</h4>

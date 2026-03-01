@@ -183,7 +183,7 @@ export default function Leaderboard() {
             </div>
             <div className="text-right flex items-center gap-3">
               <div>
-                <p className="text-sm font-black text-gt-navy">{item.points.toLocaleString()} buzzpoints</p>
+                <p className="text-sm font-black text-gt-navy">{item.points.toLocaleString()} Buzzpoints</p>
                 <p className="text-[8px] text-gray-400 uppercase font-bold tracking-wider">Buzzpoints</p>
               </div>
               {item.trend === 'up' ? <TrendingUp className="w-4 h-4 text-green-500" /> : 
@@ -198,7 +198,7 @@ export default function Leaderboard() {
         <div className="bg-gt-navy/5 p-4 rounded-2xl flex items-start gap-3">
           <Info className="w-5 h-5 text-gt-navy mt-0.5" />
           <p className="text-[10px] text-gray-500 leading-relaxed">
-            Organization buzzpoints are calculated based on total member attendance, Sting'Em accuracy, and group streaks. Top organizations earn exclusive group seating!
+            Organization Buzzpoints are calculated based on total member attendance, Sting'Em accuracy, and group streaks. Top organizations earn exclusive group seating!
           </p>
         </div>
       )}
