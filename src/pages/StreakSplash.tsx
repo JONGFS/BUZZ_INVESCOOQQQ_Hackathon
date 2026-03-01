@@ -32,7 +32,7 @@ export default function StreakSplash() {
         >
           <img src={appLogo} alt="Swamz x GT Logo" className="w-full h-full object-contain" />
         </motion.div>
-        <p className="text-xs font-black uppercase tracking-[0.28em] text-gt-metallic">swamz x gt</p>
+        <p className="text-xs font-black uppercase tracking-[0.28em] text-gt-metallic">swarmz x gt</p>
 
         {/* Animated Flame */}
         <motion.div
