@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'motion/react';
 import { Flame, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
-import gtLogo from '@buzz_source_img/gt.png';
+import appLogo from '@buzz_source_img/IMG_8922.png';
 
 export default function StreakSplash() {
   const [streak, setStreak] = useState(3);
@@ -24,14 +24,15 @@ export default function StreakSplash() {
   return (
     <div className="min-h-screen bg-white text-gt-navy flex flex-col items-center justify-between py-12 px-6 overflow-hidden">
       <div className="flex-1 flex flex-col items-center justify-center w-full space-y-8">
-        {/* GT Logo instead of emoji */}
+        {/* App logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="w-16 h-16 mb-4"
+          className="w-20 h-20 mb-2"
         >
-          <img src={gtLogo} alt="GT Logo" className="w-full h-full object-contain" />
+          <img src={appLogo} alt="Swamz x GT Logo" className="w-full h-full object-contain" />
         </motion.div>
+        <p className="text-xs font-black uppercase tracking-[0.28em] text-gt-metallic">swamz x gt</p>
 
         {/* Animated Flame */}
         <motion.div

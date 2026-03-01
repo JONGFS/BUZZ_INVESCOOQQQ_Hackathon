@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Flame, ArrowRight, Bell, Zap, Users, Star, X, Clock, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
-import gtLogo from '@buzz_source_img/gt.png';
+import appLogo from '@buzz_source_img/IMG_8922.png';
 import dukeLogo from '@buzz_source_img/duke.png';
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src={gtLogo} alt="GT Logo" className="w-8 h-8 object-contain" />
+          <img src={appLogo} alt="Swamz x GT Logo" className="w-12 h-12 object-contain" />
           <div>
             <h1 className="text-2xl font-bold text-gt-navy">Go Jackets!</h1>
             <p className="text-gray-500 text-sm">Welcome back, Jack</p>
