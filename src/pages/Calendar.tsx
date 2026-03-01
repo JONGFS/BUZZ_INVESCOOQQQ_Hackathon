@@ -155,17 +155,21 @@ export default function Calendar() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[40px] z-[70] p-8 max-w-md mx-auto shadow-2xl relative"
+              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[40px] z-[70] max-w-md mx-auto shadow-2xl flex flex-col max-h-[90vh]"
             >
-              <button
-                onClick={() => setSelectedGame(null)}
-                aria-label="Close game details"
-                className="absolute top-5 right-5 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-500 transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              {/* Header row: title placeholder + close button */}
+              <div className="shrink-0 flex items-center justify-end px-6 pt-5 pb-2">
+                <button
+                  onClick={() => setSelectedGame(null)}
+                  aria-label="Close game details"
+                  className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-500 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
 
-              <div className="space-y-8">
+              <div className="overflow-y-auto flex-1 px-6 pb-8">
+              <div className="space-y-5">
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
@@ -179,8 +183,8 @@ export default function Calendar() {
                         {selectedGame.bonus}
                       </span>
                     </div>
-                    <h3 className="text-3xl font-black text-gt-navy">GT vs {selectedGame.opponent}</h3>
-                    <p className="text-gray-500 font-bold">Mar {selectedGame.day} • {selectedGame.time} • McCamish Pavilion</p>
+                    <h3 className="text-2xl font-black text-gt-navy">GT vs {selectedGame.opponent}</h3>
+                    <p className="text-gray-500 font-bold text-sm">Mar {selectedGame.day} • {selectedGame.time} • McCamish Pavilion</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-50 rounded-3xl flex items-center justify-center border border-gray-100">
                     <img src={selectedGame.logo || gtLogo} alt="Opponent" className="w-10 h-10 object-contain" />
@@ -188,16 +192,16 @@ export default function Calendar() {
                 </div>
 
                 {/* Points Calculation Widget */}
-                <div className="bg-gt-navy rounded-3xl p-6 text-white relative overflow-hidden">
+                <div className="bg-gt-navy rounded-3xl p-5 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gt-gold/10 rounded-full -mr-16 -mt-16 blur-2xl" />
-                  <div className="relative z-10 space-y-4">
+                  <div className="relative z-10 space-y-3">
                     <div className="flex justify-between text-xs font-bold text-white/60 uppercase tracking-widest">
                       <span>Buzzpoints Gained</span>
                       <Star className="w-4 h-4 text-gt-gold fill-current" />
                     </div>
                     <div className="flex items-end gap-2">
-                      <span className="text-5xl font-black text-gt-gold">42</span>
-                      <span className="text-xl font-bold mb-1">BUZZPOINTS</span>
+                      <span className="text-4xl font-black text-gt-gold">42</span>
+                      <span className="text-lg font-bold mb-0.5">BUZZPOINTS</span>
                     </div>
                     <div className="h-px bg-white/10 w-full" />
                     <div className="grid grid-cols-3 gap-2 text-[10px] font-bold uppercase tracking-wider">
@@ -220,19 +224,19 @@ export default function Calendar() {
                 </div>
 
                 {/* Streak Impact */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-green-50 p-4 rounded-2xl border border-green-100 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
-                      <Flame className="w-6 h-6 text-white fill-white" />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-green-50 p-3 rounded-2xl border border-green-100 flex items-center gap-3">
+                    <div className="w-9 h-9 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20 shrink-0">
+                      <Flame className="w-5 h-5 text-white fill-white" />
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-green-600 uppercase">Attend</p>
                       <p className="text-sm font-bold text-gt-navy">Streak → 5</p>
                     </div>
                   </div>
-                  <div className="bg-gt-metallic/5 p-4 rounded-2xl border border-gt-metallic/10 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gt-metallic rounded-xl flex items-center justify-center shadow-lg shadow-gt-metallic/20">
-                      <Clock className="w-6 h-6 text-white" />
+                  <div className="bg-gt-metallic/5 p-3 rounded-2xl border border-gt-metallic/10 flex items-center gap-3">
+                    <div className="w-9 h-9 bg-gt-metallic rounded-xl flex items-center justify-center shadow-lg shadow-gt-metallic/20 shrink-0">
+                      <Clock className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-gt-metallic uppercase">Miss</p>
@@ -241,12 +245,13 @@ export default function Calendar() {
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={handleStartConfirmation}
-                  className="w-full py-5 bg-gt-navy text-white font-black rounded-2xl shadow-xl flex items-center justify-center text-center px-6 active:scale-95 transition-all uppercase tracking-widest leading-tight"
+                  className="w-full py-4 bg-gt-navy text-white font-black rounded-2xl shadow-xl flex items-center justify-center text-center px-6 active:scale-95 transition-all uppercase tracking-widest leading-tight"
                 >
                   Confirm Attendance & Join Hangout
                 </button>
+              </div>
               </div>
             </motion.div>
           </>
