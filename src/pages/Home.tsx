@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Flame, Calendar, Trophy, ArrowRight, Bell, Zap, Users, Star, X, Clock, Gift } from 'lucide-react';
+import { Flame, ArrowRight, Bell, Zap, Users, Star, X, Clock, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import gtLogo from '@buzz_source_img/gt.png';
@@ -214,23 +214,11 @@ export default function Home() {
 
       {/* Quick Links */}
       <div className="grid grid-cols-2 gap-3">
-        <Link to="/calendar" className="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-            <Calendar className="w-5 h-5 text-blue-600" />
-          </div>
-          <span className="text-[10px] font-bold text-gt-navy uppercase tracking-widest">Calendar</span>
-        </Link>
         <Link to="/rsvp-manager" className="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
           <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center flex-shrink-0">
             <Users className="w-5 h-5 text-green-600" />
           </div>
           <span className="text-[10px] font-bold text-gt-navy uppercase tracking-widest">Hangout</span>
-        </Link>
-        <Link to="/leaderboard" className="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-10 h-10 bg-gt-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
-            <Trophy className="w-5 h-5 text-gt-gold" />
-          </div>
-          <span className="text-[10px] font-bold text-gt-navy uppercase tracking-widest">Rankings</span>
         </Link>
         <Link to="/rewards" className="p-4 bg-white rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
           <div className="w-10 h-10 bg-gt-navy/5 rounded-full flex items-center justify-center flex-shrink-0">

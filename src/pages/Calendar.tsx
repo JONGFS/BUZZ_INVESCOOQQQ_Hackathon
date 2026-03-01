@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Filter, Info, Star, Users, Flame, Clock, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Filter, Info, Star, Users, Flame, Clock, MapPin, Loader2, CheckCircle2, X } from 'lucide-react';
 import { BuzzBee } from '../components/Icons';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
@@ -155,10 +155,16 @@ export default function Calendar() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[40px] z-[70] p-8 max-w-md mx-auto shadow-2xl"
+              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-[40px] z-[70] p-8 max-w-md mx-auto shadow-2xl relative"
             >
-              <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-8" />
-              
+              <button
+                onClick={() => setSelectedGame(null)}
+                aria-label="Close game details"
+                className="absolute top-5 right-5 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-500 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
               <div className="space-y-8">
                 <div className="flex justify-between items-start">
                   <div>
