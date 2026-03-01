@@ -11,7 +11,11 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gt-navy font-sans antialiased;
+    background-color: #f9fafb;
+    color: var(--color-gt-navy);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
   }
 }
@@ -21,7 +25,9 @@
 }
 
 .glass {
-  @apply bg-white/80 backdrop-blur-md border-t border-white/20;
+  background-color: rgb(255 255 255 / 0.8);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgb(255 255 255 / 0.2);
 }
 
 @keyframes float {

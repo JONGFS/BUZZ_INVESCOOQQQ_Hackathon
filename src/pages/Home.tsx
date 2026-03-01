@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Flame, Calendar, Trophy, ArrowRight, Bell, Zap, Users, Star, X, Clock, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import gtLogo from '@buzz_source_img/gt.png';
+import dukeLogo from '@buzz_source_img/duke.png';
 
 export default function Home() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -27,7 +29,7 @@ export default function Home() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/input_file_3.png" alt="GT Logo" className="w-8 h-8 object-contain" />
+          <img src={gtLogo} alt="GT Logo" className="w-8 h-8 object-contain" />
           <div>
             <h1 className="text-2xl font-bold text-gt-navy">Go Jackets!</h1>
             <p className="text-gray-500 text-sm">Welcome back, Jack</p>
@@ -174,7 +176,7 @@ export default function Home() {
         <Link to="/calendar" className="block bg-white p-4 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
           <div className="flex gap-4">
             <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100">
-              <img src="/src/img/duke-logo.png" alt="Duke" className="w-full h-full object-contain p-2" />
+              <img src={dukeLogo} alt="Duke" className="w-full h-full object-contain p-2" />
             </div>
             <div className="flex-1 flex flex-col justify-between">
               <div>

@@ -18,6 +18,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@buzz_source_img/*": [
+        "./src/BUZZ_source_img/*"
       ]
     },
     "allowImportingTsExtensions": true,

@@ -4,15 +4,20 @@ import { ChevronLeft, Timer, CheckCircle2, Trophy } from 'lucide-react';
 import { BuzzBee } from '../components/Icons';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import gtLogo from '@buzz_source_img/gt.png';
+import dukeLogo from '@buzz_source_img/duke.png';
+import kowacieImage from '@buzz_source_img/kowacie.jpeg';
+import kamCraftImage from '@buzz_source_img/kamkraft.jpeg';
+import akaiImage from '@buzz_source_img/akai.jpeg';
 
 export default function StingEm() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
   const players = [
-    { id: 1, name: 'Kowacie Reeves Jr.', image: '/input_file_0.png' },
-    { id: 2, name: 'Kam Craft', image: '/input_file_1.png' },
-    { id: 3, name: 'Akai Fleming', image: '/input_file_2.png' },
+    { id: 1, name: 'Kowacie Reeves Jr.', image: kowacieImage },
+    { id: 2, name: 'Kam Craft', image: kamCraftImage },
+    { id: 3, name: 'Akai Fleming', image: akaiImage },
   ];
 
   return (
@@ -34,7 +39,7 @@ export default function StingEm() {
       <div className="bg-gt-navy rounded-3xl p-5 text-white flex justify-between items-center">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1.5">
-            <img src="/input_file_3.png" alt="GT" className="w-full h-full object-contain" />
+            <img src={gtLogo} alt="GT" className="w-full h-full object-contain" />
           </div>
           <div>
             <p className="text-xs font-bold text-gt-gold">2nd Quarter</p>
@@ -47,7 +52,7 @@ export default function StingEm() {
             <p className="text-xs font-bold">08:42</p>
           </div>
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1.5">
-            <img src="/input_file_4.png" alt="Duke" className="w-full h-full object-contain" />
+            <img src={dukeLogo} alt="Duke" className="w-full h-full object-contain" />
           </div>
         </div>
       </div>

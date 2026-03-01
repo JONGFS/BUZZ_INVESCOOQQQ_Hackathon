@@ -4,6 +4,11 @@ import { ChevronLeft, ChevronRight, Filter, Info, Star, Users, Flame, Clock, Map
 import { BuzzBee } from '../components/Icons';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import dukeLogo from '@buzz_source_img/duke.png';
+import clemsonLogo from '@buzz_source_img/clemson.png';
+import fsuLogo from '@buzz_source_img/fsu.jpeg';
+import gtLogo from '@buzz_source_img/gt.png';
+import uncLogo from '@buzz_source_img/unc.png';
 
 type FilterType = 'all' | 'men' | 'women';
 
@@ -25,10 +30,10 @@ export default function Calendar() {
   };
   
   const games = [
-    { day: 4, type: 'men', opponent: 'Duke', multiplier: '2.0×', time: '7:00 PM', bonus: 'Rivalry Night', logo: '/src/img/duke-logo.png' },
-    { day: 7, type: 'women', opponent: 'UNC', multiplier: '1.5×', time: '6:30 PM', bonus: "Women's Game Boost", logo: '/src/img/unc-logo.png' },
-    { day: 12, type: 'men', opponent: 'Clemson', multiplier: '1.2×', time: '8:00 PM', bonus: 'Streak Saver', logo: '/src/img/clemson-logo.png' },
-    { day: 15, type: 'women', opponent: 'FSU', multiplier: '1.5×', time: '7:00 PM', bonus: "Women's Game Boost", logo: '/src/img/fsu-logo.png' },
+    { day: 4, type: 'men', opponent: 'Duke', multiplier: '2.0×', time: '7:00 PM', bonus: 'Rivalry Night', logo: dukeLogo },
+    { day: 7, type: 'women', opponent: 'UNC', multiplier: '1.5×', time: '6:30 PM', bonus: "Women's Game Boost", logo: uncLogo },
+    { day: 12, type: 'men', opponent: 'Clemson', multiplier: '1.2×', time: '8:00 PM', bonus: 'Streak Saver', logo: clemsonLogo },
+    { day: 15, type: 'women', opponent: 'FSU', multiplier: '1.5×', time: '7:00 PM', bonus: "Women's Game Boost", logo: fsuLogo },
   ];
 
   const getGameForDay = (day: number) => {
@@ -172,7 +177,7 @@ export default function Calendar() {
                     <p className="text-gray-500 font-bold">Mar {selectedGame.day} • {selectedGame.time} • McCamish Pavilion</p>
                   </div>
                   <div className="w-16 h-16 bg-gray-50 rounded-3xl flex items-center justify-center border border-gray-100">
-                    <img src={selectedGame.logo || '/src/img/gt-logo.png'} alt="Opponent" className="w-10 h-10 object-contain" />
+                    <img src={selectedGame.logo || gtLogo} alt="Opponent" className="w-10 h-10 object-contain" />
                   </div>
                 </div>
 

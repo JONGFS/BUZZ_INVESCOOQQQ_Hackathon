@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { 
+import {
   Settings, 
   ChevronRight, 
   Flame, 
@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import gtLogo from '@buzz_source_img/gt.png';
 
 export default function Profile() {
   const stats = [
@@ -34,8 +35,8 @@ export default function Profile() {
       <div className="flex justify-between items-start">
         <div className="flex items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-gt-navy p-1 shadow-xl">
-            <div className="w-full h-full rounded-full bg-white overflow-hidden border-2 border-white">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jack" alt="Profile" referrerPolicy="no-referrer" />
+            <div className="w-full h-full rounded-full bg-gray-100 border-2 border-white flex items-center justify-center">
+              <span className="text-xl font-black text-gray-500 tracking-wide">JT</span>
             </div>
           </div>
           <div>
@@ -101,7 +102,7 @@ export default function Profile() {
 
       {/* Version */}
       <div className="flex flex-col items-center gap-2">
-        <img src="/input_file_3.png" alt="GT Logo" className="w-6 h-6 object-contain opacity-30" />
+        <img src={gtLogo} alt="GT Logo" className="w-6 h-6 object-contain opacity-30" />
         <p className="text-center text-[10px] text-gray-300">BuzzGT v2.4.0 • Georgia Tech Athletics</p>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Info, ChevronLeft, Share2, MapPin, Calendar, Clock, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import gtLogo from '@buzz_source_img/gt.png';
 
 export default function AttendanceConfirmation() {
   const [confirmed, setConfirmed] = useState(false);
@@ -112,7 +113,7 @@ export default function AttendanceConfirmation() {
         >
           <div className="h-48 bg-gt-navy relative">
             <img 
-              src="/src/img/mccamish.jpg" 
+              src={gtLogo}
               alt="McCamish Pavilion" 
               className="w-full h-full object-cover opacity-50"
               referrerPolicy="no-referrer"

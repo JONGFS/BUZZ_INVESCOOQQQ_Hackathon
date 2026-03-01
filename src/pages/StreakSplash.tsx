@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'motion/react';
 import { Flame, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import gtLogo from '@buzz_source_img/gt.png';
 
 export default function StreakSplash() {
   const [streak, setStreak] = useState(3);
@@ -29,7 +30,7 @@ export default function StreakSplash() {
           animate={{ opacity: 1, scale: 1 }}
           className="w-16 h-16 mb-4"
         >
-          <img src="/input_file_3.png" alt="GT Logo" className="w-full h-full object-contain" />
+          <img src={gtLogo} alt="GT Logo" className="w-full h-full object-contain" />
         </motion.div>
 
         {/* Animated Flame */}

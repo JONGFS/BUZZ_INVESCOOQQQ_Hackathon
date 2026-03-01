@@ -6,6 +6,14 @@ import { cn } from '../lib/utils';
 
 type LeaderboardType = 'org' | 'solo';
 
+const getInitials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+
 export default function Leaderboard() {
   const [activeTab, setActiveTab] = useState<LeaderboardType>('org');
 
@@ -73,7 +81,11 @@ export default function Leaderboard() {
             onClick={() => handleConfetti('#C0C0C0')}
             className="w-16 h-16 rounded-full bg-gray-200 border-4 border-white shadow-lg mb-2 overflow-hidden cursor-pointer active:scale-95 transition-transform"
           >
-            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${activeTab === 'org' ? 'org2' : 'solo2'}`} alt="2nd" referrerPolicy="no-referrer" />
+            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+              <span className="text-sm font-black text-gray-500">
+                {getInitials(activeTab === 'org' ? orgData[1].name : soloData[1].name)}
+              </span>
+            </div>
           </div>
           <div className="w-20 h-24 bg-gray-300 rounded-t-xl flex flex-col items-center justify-center text-white relative">
             <span className="text-2xl font-black">2</span>
@@ -93,7 +105,11 @@ export default function Leaderboard() {
               onClick={() => handleConfetti('#FFD700')}
               className="w-20 h-20 rounded-full bg-gt-gold border-4 border-white shadow-xl mb-2 overflow-hidden cursor-pointer active:scale-95 transition-transform"
             >
-              <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${activeTab === 'org' ? 'org1' : 'solo1'}`} alt="1st" referrerPolicy="no-referrer" />
+              <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                <span className="text-base font-black text-gray-500">
+                  {getInitials(activeTab === 'org' ? orgData[0].name : soloData[0].name)}
+                </span>
+              </div>
             </div>
           </div>
           <div className="w-24 h-32 bg-gt-navy rounded-t-xl flex flex-col items-center justify-center text-white relative">
@@ -110,7 +126,11 @@ export default function Leaderboard() {
             onClick={() => handleConfetti('#CD7F32')}
             className="w-16 h-16 rounded-full bg-gt-metallic/10 border-4 border-white shadow-lg mb-2 overflow-hidden cursor-pointer active:scale-95 transition-transform"
           >
-            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${activeTab === 'org' ? 'org3' : 'solo3'}`} alt="3rd" referrerPolicy="no-referrer" />
+            <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+              <span className="text-sm font-black text-gray-500">
+                {getInitials(activeTab === 'org' ? orgData[2].name : soloData[2].name)}
+              </span>
+            </div>
           </div>
           <div className="w-20 h-20 bg-gt-metallic/20 rounded-t-xl flex flex-col items-center justify-center text-white relative">
             <span className="text-2xl font-black">3</span>
@@ -134,7 +154,7 @@ export default function Leaderboard() {
             <div className="flex items-center gap-4">
               <span className="text-sm font-black text-gray-400 w-4">{index + 1}</span>
               <div className="w-10 h-10 rounded-full bg-gt-navy/5 flex items-center justify-center overflow-hidden">
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.name}`} alt={item.name} referrerPolicy="no-referrer" />
+                <span className="text-xs font-black text-gray-500">{getInitials(item.name)}</span>
               </div>
               <div>
                 <div className="flex items-center gap-2">

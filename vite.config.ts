@@ -13,6 +13,7 @@ export default defineConfig(({mode}) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
+        '@buzz_source_img': path.resolve(__dirname, 'src/BUZZ_source_img'),
       },
     },
     server: {
