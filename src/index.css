@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gt-gold: #B3A369;
+  --color-gt-metallic: #A28D5B;
+  --color-gt-navy: #003057;
+  --color-gt-white: #FFFFFF;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gt-navy font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.glass {
+  @apply bg-white/80 backdrop-blur-md border-t border-white/20;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
